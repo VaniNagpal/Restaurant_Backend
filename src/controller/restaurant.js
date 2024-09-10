@@ -1,5 +1,5 @@
 import Restaurant from "../models/restaurant.js";
-import User from "../models/user.js";
+
 import ErrorHandler from "../utils/ErrorHandler.js";
 import ErrorWrapper from "../utils/ErrorWrapper.js";
 import uploadOnCloudinary ,{ uploadBatchOnCloudinary }from "../utils/uploadOnCloudinary.js";
