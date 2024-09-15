@@ -1,17 +1,16 @@
 const ErrorWrapper = function (cb) {
     return async function (req, res, next) {
-        try{
+        try {
             await cb(req, res, next);
-        }
-        catch(error){
-            res.status(error.statusCode).json({
-                status: error.statusCode,
-                message: error.message,
+        } catch (error) {
+            const statusCode = error.statusCode || 500; // Fallback to 500 if statusCode is undefined
+            res.status(statusCode).json({
+                status: statusCode,
+                message: error.message || 'An unexpected error occurred',
                 success: false
-            })
+            });
         }
-    }
-}
-
+    };
+};
 
 export default ErrorWrapper;

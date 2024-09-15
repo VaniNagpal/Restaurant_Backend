@@ -43,7 +43,8 @@ const userSchema = new Schema({
                         ref: "Food"
                     }
                 }
-            ]
+            ],
+            totalPrice:Number
         }
     ],
     password: {
@@ -53,7 +54,8 @@ const userSchema = new Schema({
     cart: [
         {
             food: Object,
-            quantity: Number
+            quantity: Number,
+            totalPrice:Number
         }
     ],
     refreshToken: {
@@ -114,6 +116,5 @@ userSchema.methods.generateAccessToken = async function () {
 }
 
 
-
 const User = mongoose.model("User", userSchema);
-export default User
+export default User;
